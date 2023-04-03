@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.model.Message;
 import com.example.model.User;
 import com.example.service.UserService;
 
@@ -16,11 +17,11 @@ public class UserController {
 	private UserService userService;
 	
 	// create
-	@PostMapping("/api/users/join")
+	@PostMapping("/api/users")
 	private ResponseEntity<User> createUser(@RequestBody User user) {
 		User create = userService.createUser(user);
 		
-		return new ResponseEntity<User>(create, HttpStatus.CREATED);
+		return new ResponseEntity<>(create, HttpStatus.CREATED);
 	}
 	
 	// read

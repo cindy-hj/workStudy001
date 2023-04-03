@@ -11,9 +11,8 @@ public class AttachService {
 	@Autowired
 	private AttachRepository attachRepository;
 	
-	
 	// create
-	public Attach createAttach (Attach attach) {
+	public Attach save(Attach attach) {
 		return attachRepository.save(attach);
 	}
 

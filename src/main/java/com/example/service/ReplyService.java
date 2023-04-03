@@ -12,7 +12,8 @@ public class ReplyService {
 	private ReplyRepository replyRepository;
 	
 	//create
-	public Reply createReply (Reply reply) {
+	public Reply save(Reply reply) {
 		return replyRepository.save(reply);
 	}
+
 }

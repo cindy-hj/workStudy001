@@ -27,7 +27,7 @@ public class BoardController {
 	@PostMapping("/api/boards")
 	public ResponseEntity<Board> createBoard(@RequestBody Board board) {
 		Board postBoard = boardService.createBoard(board);
-		return new ResponseEntity<Board>(postBoard, HttpStatus.CREATED);
+		return new ResponseEntity<>(postBoard, HttpStatus.CREATED);
 	}
 	
 	// read
@@ -41,14 +41,14 @@ public class BoardController {
 	@PutMapping("/api/boards/{bno}")
 	public ResponseEntity<Board> updateBoard(@PathVariable int bno, @RequestBody Board board) {
 		Board updateBoard = boardService.updateBoard(bno, board);
-		return new ResponseEntity<Board>(updateBoard, HttpStatus.ACCEPTED);
+		return new ResponseEntity<>(updateBoard, HttpStatus.ACCEPTED);
 	}
 	
 	// delete
 	@DeleteMapping("/api/boards/{bno}")
 	public ResponseEntity<Board> deleteBoard(@PathVariable int bno) {
 		Board deleteBoard = boardService.delete(bno);
-		return new ResponseEntity<Board>(deleteBoard, HttpStatus.OK);
+		return new ResponseEntity<>(deleteBoard, HttpStatus.OK);
 	}
 	
 }
