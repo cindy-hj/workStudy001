@@ -56,6 +56,10 @@ public class Board {
 		this.content = content;
 		
 	}
+
+	public void update(int viewcnt) {
+		this.viewcnt = ++viewcnt;
+	}
 	
 
 

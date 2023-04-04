@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.model.Board;
 
@@ -33,8 +34,16 @@ public class BoardService {
 		Board updated = boardRepository.findById(bno).get();
 		updated.update(board.getTitle(), board.getContent());
 		
-		Board updateSuccess = boardRepository.findById(bno).get();
-		return updateSuccess;
+		return updated;
+	}
+
+	// 조회수 증가
+	@Transactional
+	public Board updateViewcnt(int bno) {
+		Board board = boardRepository.findById(bno).get();
+		board.update(board.getViewcnt());
+		
+		return board;
 	}
 	
 	//delete

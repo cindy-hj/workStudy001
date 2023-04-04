@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.model.Board;
@@ -42,6 +43,13 @@ public class BoardController {
 	public ResponseEntity<Board> updateBoard(@PathVariable int bno, @RequestBody Board board) {
 		Board updateBoard = boardService.updateBoard(bno, board);
 		return new ResponseEntity<>(updateBoard, HttpStatus.ACCEPTED);
+	}
+	
+	// 조회수 증가
+	@PutMapping("/api/boards/viewcnt/{bno}")
+	public ResponseEntity<Board> updateViewcnt(@PathVariable int bno) {
+		Board addView = boardService.updateViewcnt(bno);
+		return new ResponseEntity<>(addView, HttpStatus.ACCEPTED);
 	}
 	
 	// delete
